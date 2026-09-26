@@ -5,9 +5,10 @@ the code works end-to-end before committing to a full run.
 import pandas as pd
 import os, sys, tempfile, shutil
 
-# Paths
-TRAIN_DIR = '../../../dataset/train'
-TEST_DIR  = '../../../dataset/test'
+# Paths dynamically resolved relative to this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+TRAIN_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, '../../../dataset/train'))
+TEST_DIR  = os.path.abspath(os.path.join(SCRIPT_DIR, '../../../dataset/test'))
 
 print("=== Smoke Test: Loading tiny subsets ===")
 
